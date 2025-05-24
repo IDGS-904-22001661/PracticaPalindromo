@@ -24,6 +24,7 @@ class PalindromoActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         btnPalindromo.setOnClickListener {
             val inputText = editText.text.toString()
             if (comprobarPalindromo(inputText)) {
@@ -36,8 +37,9 @@ class PalindromoActivity : AppCompatActivity() {
                 intent.putExtra("invertido", textoInvertido)
                 intent.putExtra("vocales", vocalesEnTexto)
                 intent.putExtra("consonantes", numConsonates)
+                startActivity(intent)
             } else {
-                viewText.text = inputText + "No es un palíndromo"
+                viewText.text = inputText + " No es un palíndromo"
             }
         }
 
@@ -59,6 +61,7 @@ class PalindromoActivity : AppCompatActivity() {
             i--
         }
 
+
         return textoInvertido
     }
 
@@ -79,7 +82,6 @@ class PalindromoActivity : AppCompatActivity() {
                 num++
             }
         }
-
         return num
     }
 }
